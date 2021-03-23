@@ -1,0 +1,56 @@
+﻿@model SuperAgenda.Models.Contacts
+@{
+}
+
+<div class="container">
+	<form method="post" action="/Home/Agregar">
+
+		<label for="fname">Nombre</label>
+		<input type="text" id="fname" name="Nombres" placeholder="Nombres">
+		<br />
+		<label for="lname">Apellidos</label>
+		<input type="text" id="lname" name="Apellidos" placeholder="Apellidos">
+		<br />
+		<label for="Movil">Telefono Movil</label>
+		<input type="tel" id="TMovil" name="TelefonoMovil1" placeholder="Telefono Movil" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+		<br />
+		<label for="Fijo">Telefono Fijo </label>
+		<input type="tel" id="tFijo" name="TelefonoCasa" placeholder="Telefono Casa" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+		<br />
+		<label for="Trabajo">Telefono Trabajo</label>
+		<input type="tel" id="ttrabajo" name="TelefonoTrabajo" placeholder="Telefono Trabajo" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+		<br />
+		<label for="Nacimiento">Fecha de Nacimiento</label>
+		<input type="date" id="nacimiento" name="FechaNacimiento" placeholder="Fecha de Nacimiento">
+		<br />
+		<label for="Cedula">Cedula</label>
+		<input type="text" id="cedula" name="cedula" placeholder="Cedula">
+		<br />
+		<label for="Correo">Correo</label>
+		<input type="email" id="email" name="email" placeholder="Email">
+		<br />
+		<label for="Empresa">Empresa</label>
+		<input type="text" id="empresa" name="empresa" placeholder="Empresa">
+		<br />
+		<label for="IG">Instagram</label>
+		<input type="text" id="IG" name="IG" placeholder="Instagram">
+		<br />
+		<label for="FB">Facebook</label>
+		<input type="text" id="FB" name="FB" placeholder="Facebook">
+		<br />
+		<label for="web">Pagina Web</label>
+		<input type="text" id="web" name="web" placeholder="Pagina Web">
+		<br />
+		<label for="web">Puesto de Trabajo</label>
+		<input type="text" id="trabajo" name="trabajo" placeholder="Puesto de trabajo">
+		<br />
+		<label for="subject">Subject</label>
+		<textarea id="subject" name="subject" placeholder="Escriba algo..." style="height:200px"></textarea>
+		<br />
+
+		<input type="submit" value="Enviar" id="enviar"/>
+
+		<input type="reset" value="reset" id="reset" />
+
+	</form>
+</div>

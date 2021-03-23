@@ -1,8 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Contacts>
+@{ 
+	ViewData["Title"] = "Home Page"; 
 }
 
 <div class="text-center">
-    <h1 class="display-4">welcome to my agenda Guys</h1>
-    
+	<h1 class="display-4">Welcome to my agenda Guys</h1>
 </div>
+
+<a href="/Home/Agregar" class="btn btn-primary">Agregar</a>
+
+<table class="table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Nombres</th>
+			<th>Apellidos</th>
+			<th>TelefonoMovil</th>
+			<th>TelefonoCasa</th>
+			<th>TelefonoTrabajo</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>@item.Nombres</td>
+			<td>@item.Apellidos</td>
+			<td>@item.TelefonoMovil1</td>
+			<td>@item.TelefonoCasa</td>
+			<td>@item.TelefonoTrabajo</td>
+		</tr>
+		}
+	</tbody>
+</table>

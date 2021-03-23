@@ -9,25 +9,63 @@ using System.Threading.Tasks;
 
 namespace SuperAgenda.Controllers
 {
-	public class HomeController : Controller
-	{
-		private readonly ILogger<HomeController> _logger;
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+        private readonly dbContactosContext _db;
 
-		public HomeController(ILogger<HomeController> logger)
-		{
-			_logger = logger;
-		}
+        public HomeController(ILogger<HomeController> logger, dbContactosContext db)
+        {
+            _logger = logger;
+            _db = db;
+        }
+        public IActionResult Index()
+        {
+            var contactos = _db.Contactos;
+            return View(contactos);
+        }
 
-		public IActionResult Index()
-		{
-			return View();
-		}
+        public IActionResult Agregar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Agregar(Contacts input)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Contactos.Add(input);
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            return View(input);
+        }
+
+        public IActionResult Modificar(int id)
+        {
+            var output = _db.Contactos.Find(id);
+            return View(output);
+        }
+
+        [HttpPost]
+        public IActionResult Modificar(Contacts input)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _db.SaveChanges();
 
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error()
-		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
-	}
+            }
+            return View(input);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
 }
