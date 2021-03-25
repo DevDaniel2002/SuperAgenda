@@ -11,6 +11,8 @@ namespace SuperAgenda.Models
 	public class Contacts
 	{
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		public int Id { get; set; }
+		[Required]
 		public string Nombres { get; set; }
 		[Required]
 		public string Apellidos { get; set; }

@@ -43,6 +43,13 @@ namespace SuperAgenda.Controllers
             return View(input);
         }
 
+        public IActionResult Detalle(int id)
+        {
+            var output = _db.Contactos.Find(id);
+            return View(output);
+        }
+
+
         public IActionResult Modificar(int id)
         {
             var output = _db.Contactos.Find(id);
@@ -57,10 +64,34 @@ namespace SuperAgenda.Controllers
                 _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _db.SaveChanges();
 
+                return RedirectToAction("Index");
 
             }
             return View(input);
         }
+
+
+
+        public IActionResult Eliminar(int id)
+        {
+            var output = _db.Contactos.Find(id);
+            return View(output);
+        }
+
+        [HttpPost]
+        public IActionResult Eliminar(Contacts input)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+                _db.SaveChanges();
+
+                return RedirectToAction("Index");
+
+            }
+            return View(input);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

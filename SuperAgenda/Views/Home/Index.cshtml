@@ -29,6 +29,11 @@
 			<td>@item.TelefonoMovil1</td>
 			<td>@item.TelefonoCasa</td>
 			<td>@item.TelefonoTrabajo</td>
+			<td class="text-center">
+				<a href="/Home/Detalle/@item.Id" class="btn btn-secondary">Detalle</a>
+				<a href="/Home/Modificar/@item.Id" class="btn btn-warning">Editar</a>
+				<a href="/Home/Eliminar/@item.Id " class="btn btn-danger">Eliminar</a>
+			</td>
 		</tr>
 		}
 	</tbody>
