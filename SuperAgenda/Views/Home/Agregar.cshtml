@@ -5,51 +5,55 @@
 <div class="container">
 	<form method="post" action="/Home/Agregar">
 
-		<label for="fname">Nombre</label>
-		<input type="text" id="fname" name="Nombres" placeholder="Nombres">
-		<br />
-		<label for="lname">Apellidos</label>
-		<input type="text" id="lname" name="Apellidos" placeholder="Apellidos">
-		<br />
-		<label for="Movil">Telefono Movil</label>
-		<input type="tel" id="TMovil" name="TelefonoMovil1" placeholder="Telefono Movil" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-		<br />
-		<label for="Fijo">Telefono Fijo </label>
-		<input type="tel" id="tFijo" name="TelefonoCasa" placeholder="Telefono Casa" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-		<br />
-		<label for="Trabajo">Telefono Trabajo</label>
-		<input type="tel" id="ttrabajo" name="TelefonoTrabajo" placeholder="Telefono Trabajo" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-		<br />
-		<label for="Nacimiento">Fecha de Nacimiento</label>
-		<input type="date" id="nacimiento" name="FechaNacimiento" placeholder="Fecha de Nacimiento">
-		<br />
-		<label for="Cedula">Cedula</label>
-		<input type="text" id="cedula" name="Cedula" placeholder="Cedula">
-		<br />
-		<label for="Correo">Correo</label>
-		<input type="email" id="email" name="Correo" placeholder="Email">
-		<br />
-		<label for="Empresa">Empresa</label>
-		<input type="text" id="empresa" name="Empresa" placeholder="Empresa">
-		<br />
-		<label for="Empresa">Direccion</label>
-		<input type="text" id="Direccion" name="Direccion" placeholder="Direccion">
-		<br />
-		<label for="IG">Instagram</label>
-		<input type="text" id="IG" name="Instagram" placeholder="Instagram">
-		<br />
-		<label for="FB">Facebook</label>
-		<input type="text" id="FB" name="Facebook" placeholder="Facebook">
-		<br />
-		<label for="web">Pagina Web</label>
-		<input type="text" id="web" name="PaginaWeb" placeholder="Pagina Web">
-		<br />
-		<label for="web">Puesto de Trabajo</label>
-		<input type="text" id="trabajo" name="PuestoTrabajo" placeholder="Puesto de trabajo">
+		@Html.LabelFor(a => a.Nombres, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Nombres, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Apellidos, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Apellidos, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.TelefonoMovil1, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.TelefonoMovil1, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.TelefonoCasa, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.TelefonoCasa, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.TelefonoTrabajo, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.TelefonoTrabajo, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.FechaNacimiento, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.FechaNacimiento, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Cedula, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Cedula, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Tipo, new { @class = "col-2" })
+		@Html.DropDownListFor(a => a.Tipo, Html.GetEnumSelectList<SuperAgenda.Models.TipoContacto>(), new { @class = "form-Control" })
+
+		@Html.LabelFor(a => a.Correo, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Correo, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Empresa, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Empresa, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Direccion, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Direccion, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Instagram, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Instagram, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Facebook, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Facebook, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.PaginaWeb, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.PaginaWeb, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.PuestoTrabajo, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.PuestoTrabajo, new { @class = "form-control" })
 		<br />
 		<label for="subject">Subject</label>
 		<textarea id="subject" name="subject" placeholder="Escriba algo..." style="height:200px"></textarea>
 		<br />
+
 
 		<input type="submit" value="Enviar" id="enviar" />
 

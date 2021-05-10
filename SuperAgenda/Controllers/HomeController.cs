@@ -35,7 +35,7 @@ namespace SuperAgenda.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.Contactos.Add(input);
+                _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Added;
                 _db.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -80,16 +80,12 @@ namespace SuperAgenda.Controllers
 
         [HttpPost]
         public IActionResult Eliminar(Contacts input)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-                _db.SaveChanges();
+        {    
+            _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            _db.SaveChanges();
 
-                return RedirectToAction("Index");
-
-            }
-            return View(input);
+            return RedirectToAction("Index");
+            
         }
 
 

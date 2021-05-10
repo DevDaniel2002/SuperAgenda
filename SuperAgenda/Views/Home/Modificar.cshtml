@@ -1,7 +1,64 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SuperAgenda.Models.Contacts
 @{
 }
 
-<h1>Estoy en modificar</h1>
+<div class="container">
+	<form method="post" action="/Home/Modificar">
+
+		@Html.HiddenFor(obj => obj.Id)
+
+		@Html.LabelFor(a => a.Nombres, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Nombres, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Apellidos, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Apellidos, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.TelefonoMovil1, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.TelefonoMovil1, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.TelefonoCasa, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.TelefonoCasa, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.TelefonoTrabajo, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.TelefonoTrabajo, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.FechaNacimiento, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.FechaNacimiento, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Cedula, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Cedula, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Tipo, new { @class = "col-2" })
+		@Html.DropDownListFor(a => a.Tipo, Html.GetEnumSelectList<SuperAgenda.Models.TipoContacto>(), new { @class = "form-Control" })
+
+		@Html.LabelFor(a => a.Correo, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Correo, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Empresa, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Empresa, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Direccion, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Direccion, new { @class = "form-control" })
+		
+		@Html.LabelFor(a => a.Instagram, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Instagram, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.Facebook, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.Facebook, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.PaginaWeb, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.PaginaWeb, new { @class = "form-control" })
+
+		@Html.LabelFor(a => a.PuestoTrabajo, new { @class = "col-2" })
+		@Html.TextBoxFor(a => a.PuestoTrabajo, new { @class = "form-control" })
+		<br />
+		<label for="subject">Subject</label>
+		<textarea id="subject" name="subject" placeholder="Escriba algo..." style="height:200px"></textarea>
+		<br />
+
+		<input type="submit" value="Enviar" id="enviar" />
+
+		<input type="reset" value="reset" id="reset" />
+
+	</form>
+</div>

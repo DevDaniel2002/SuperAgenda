@@ -1,7 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model SuperAgenda.Models.Contacts
 @{
 }
 
-<h1>estoy en eliminar</h1>
+<div class="container">
+	<form method="post" action="/Home/Eliminar">
+
+		<input type="hidden" name="Id" id="Id" value="@Model.Id" />
+
+		<h1> Estas seguro de que quieres eliminar el register? </h1>
+
+		<button type="submit" class="btn btn-danger" > Eliminar  </button>
+
+
+	</form>
+</div>

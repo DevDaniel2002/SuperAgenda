@@ -31,6 +31,7 @@ namespace SuperAgenda.Models
 		public string Facebook { get; set; }
 		public string PaginaWeb { get; set; }
 		public string PuestoTrabajo { get; set; }
+		public TipoContacto Tipo { get; set; }
 		public Byte[] Foto { get; set; }
 	}
 }
